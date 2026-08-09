@@ -1,0 +1,83 @@
+int inp1 = 4;
+int inp2 = 5;
+int inp3 = 3;
+int inp4 = 2;
+
+int pwm1 = 9;
+int pwm2 = 10;
+
+
+void setup()
+{
+	Serial.begin(9600);
+  	pinMode(inp1,OUTPUT);
+  	pinMode(inp2,OUTPUT);
+  	pinMode(inp3,OUTPUT);
+  	pinMode(inp4,OUTPUT);
+  
+  	pinMode(pwm1,OUTPUT);
+  	pinMode(pwm2,OUTPUT);	
+}
+
+void loop()
+{
+  	directionControl();
+  	delay(1000);
+  	speedControl();
+  	delay(1000);
+}
+
+void directionControl()
+{
+	analogWrite(pwm1,255);
+  	analogWrite(pwm2,255);
+  	
+	digitalWrite(inp1,HIGH);
+  	digitalWrite(inp2,LOW);
+  	digitalWrite(inp3,HIGH);
+  	digitalWrite(inp4,LOW);
+  
+  	delay(1000);
+  
+  	digitalWrite(inp1,LOW);
+  	digitalWrite(inp2,HIGH);
+  	digitalWrite(inp3,LOW);
+  	digitalWrite(inp4,HIGH);
+  
+  	delay(1000);
+  
+  	digitalWrite(inp1,LOW);
+  	digitalWrite(inp2,LOW);
+  	digitalWrite(inp3,LOW);
+  	digitalWrite(inp4,LOW);
+}
+
+void speedControl()
+{
+  
+  	digitalWrite(inp1,LOW);
+  	digitalWrite(inp2,HIGH);
+  	digitalWrite(inp3,LOW);
+  	digitalWrite(inp4,HIGH);
+  
+	for (int i=0; i<256; i++)
+    {
+    	analogWrite(pwm1,i);
+      	analogWrite(pwm2,i);
+      	delay(10);
+    }
+  
+  	delay(2000);
+  
+  	for (int i=255; i>=0;i--)
+    {
+    	analogWrite(pwm1,i);
+      	analogWrite(pwm2,i);
+      	delay(10);
+    }
+  
+  	digitalWrite(inp1,LOW);
+  	digitalWrite(inp2,LOW);
+  	digitalWrite(inp3,LOW);
+  	digitalWrite(inp4,LOW);
+}
