@@ -1,8 +1,8 @@
 # Motor-Driver-L293D-simulation
 
-This is a tinkerlab simulation demonstrating the use of L293D motor driver with directional and speed control.
+This is a Tinkercad simulation demonstrating the use of L293D motor driver with directional and speed control.
 
-Directional changes being handled by digital pins and speed control handled by Pulse Width Modulation (PWM) pins.
+Directional changes are being handled by the digital pins and speed control is handled by the Pulse Width Modulation (PWM) pins.
 
 <img width="1917" height="846" alt="Screenshot 2026-08-09 135320" src="https://github.com/user-attachments/assets/f8460508-7107-4e9e-a5dc-60bbdb87d5ba" />
 
